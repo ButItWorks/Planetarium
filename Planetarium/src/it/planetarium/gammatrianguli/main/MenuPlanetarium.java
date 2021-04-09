@@ -38,11 +38,11 @@ public class MenuPlanetarium {
     {
         // HEADER METODO
         menuWelcome();
-        System.out.println(String.format(MSG_TITLE, "CREA SISTEMA"));
+        System.out.println(String.format(MSG_TITLE, "CREAZIONE SISTEMA"));
 
         //INPUT DATI
-        String nomeSistema = InputDati.leggiStringa("Inserire nome del sistema: ");
-        System.out.println(String.format(MSG_TITLE, "CREAZIONE STELLA DEL SISTEMA"));
+        String nomeSistema = InputDati.leggiStringa("Inserire nome sistema: ");
+        System.out.println(String.format(MSG_TITLE, "CREAZIONE STELLA"));
         String codiceStella = InputDati.leggiStringa(String.format(MSG_CODICE_ID, "stella"));
         double massaStella = InputDati.leggiDouble(String.format(MSG_MASSA, "stella"));
         Posizione posizioneStella = new Posizione(0.0, 0.0);
@@ -54,7 +54,7 @@ public class MenuPlanetarium {
     public static void strutturaSistema(Sistema sistema)
     {
         //HEADER METODO
-        System.out.println("+===============   SISTEMA   ===============+");
+        System.out.println("+===================   SISTEMA   ===================+");
         System.out.println("Nome sistema: " + sistema.getNomeSistema());
 
         //STAMPA STRUTTURA
@@ -67,7 +67,7 @@ public class MenuPlanetarium {
             }
         }
 
-        System.out.println("+===========================================+");
+        System.out.println("+===================================================+");
     }
 
     public static void menuHeader(Sistema sistema)
@@ -97,12 +97,21 @@ public class MenuPlanetarium {
         System.out.println(MSG_ARRIVEDERCI);
     }
 
-    public static void aggiungiPianeta(Sistema sistema)
-    {
-        // HEADER METODO
+    public static void headerMetodo(Sistema sistema, String headerMessage) {
         cls();
         strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "AGGIUNGI PIANETA"));
+        System.out.println(String.format(MSG_TITLE, headerMessage));
+    }
+
+    public static void footerMetodo() {
+        InputDati.leggiStringa(MSG_STOP);
+        cls();
+    }
+
+    public static void aggiungiPianeta(Sistema sistema)
+    {
+
+        headerMetodo(sistema, "AGGIUNGI PIANETA");
 
         //INPUT DATI
         String codicePianeta = InputDati.leggiStringa(String.format(MSG_CODICE_ID, "pianeta"));
@@ -123,17 +132,12 @@ public class MenuPlanetarium {
             System.out.println(String.format(MSG_CONFERMA_INSERIMENTO, "pianeta", pianeta.getCodiceId()));
         }
 
-        //FINE METODO
-        InputDati.leggiStringa(MSG_STOP);
-        cls();
+        footerMetodo();
     }
 
     public static void rimuoviPianeta(Sistema sistema)
     {
-        // HEADER METODO
-        cls();
-        strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "RIMUOVI PIANETA"));
+        headerMetodo(sistema, "RIMUOVI PIANETA");
 
         //INPUT DATI
         String codicePianeta = InputDati.leggiStringa(String.format(MSG_CODICE_ID, "pianeta"));
@@ -147,18 +151,12 @@ public class MenuPlanetarium {
             System.out.println(String.format(MSG_CONFERMA_RIMOZIONE ,"pianeta", pianeta.getCodiceId()));
         }
         
-        // FINE METODO
-        InputDati.leggiStringa(MSG_STOP);
-        cls();
+        footerMetodo();
     }
 
     public static void aggiungiSatellite(Sistema sistema)
     {
-        // HEADER METODO
-        cls();
-        strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "AGGIUNGI SATELLITE"));
-
+        headerMetodo(sistema, "AGGIUNGI SATELLITE");
 
         // INPUT DATI
         String codiceSatellite = InputDati.leggiStringa(String.format(MSG_CODICE_ID, "satellite"));
@@ -183,17 +181,12 @@ public class MenuPlanetarium {
             System.out.println(String.format(MSG_CONFERMA_INSERIMENTO, "satellite", satellite.getCodiceId()));
         }
 
-        // FINE METODO
-        InputDati.leggiStringa(MSG_STOP);
-        cls();
+        footerMetodo();
     }
 
     public static void rimuoviSatellite(Sistema sistema)
     {
-        // HEADER METODO
-        cls();
-        strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "RIMUOVI SATELLITE"));
+        headerMetodo(sistema, "RIMUOVI SATELLITE");
 
         // INPUT DATI
         String codiceSatellite = InputDati.leggiStringa(String.format(MSG_CODICE_ID, "satellite"));
@@ -207,17 +200,12 @@ public class MenuPlanetarium {
             System.out.println(String.format(MSG_CONFERMA_RIMOZIONE, "satellite", satellite.getCodiceId()));
         }
 
-        // FINE METODO
-        InputDati.leggiStringa(MSG_STOP);
-        cls();
+        footerMetodo();
     }
 
     public static void cercaSatelliti(Sistema sistema)
     {
-        // HEADER METODO
-        cls();
-        strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "VISUALIZZA SATELLITI PIANETA"));
+        headerMetodo(sistema, "VISUALIZZA SATELLITI PIANETA");
 
         // INPUT DATI
         String codicePianeta = InputDati.leggiStringa("Inserire codice id del pianeta di cui visualizzare i satelliti: ");
@@ -238,17 +226,12 @@ public class MenuPlanetarium {
             }
         }
         
-        // FINE METODO
-        InputDati.leggiStringa(MSG_STOP);
-        cls();
+        footerMetodo();
     }
 
     public static void cercaCorpoCeleste(Sistema sistema)
     {
-        // HEADER METODO
-        cls();
-        strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "CERCA CORPO CELESTE"));
+        headerMetodo(sistema, "CERCA CORPO CELESTE");
 
         // INPUT DATI
         String codiceCorpoCeleste = InputDati.leggiStringa("Inserire il codice del corpo celeste: ");
@@ -272,17 +255,12 @@ public class MenuPlanetarium {
             }
         }
         
-        // FINE METODO
-        InputDati.leggiStringa(MSG_STOP);
-        cls();
+        footerMetodo();
     }
 
     public static void calcolaCentroMassa(Sistema sistema)
     {
-        // HEADER METODO
-        cls();
-        strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "CALCOLO CENTRO DI MASSA"));
+        headerMetodo(sistema, "CALCOLA CENTRO DI MASSA");
 
         // STAMPA CENTRO MASSA
         System.out.println("Il centro di massa corrisponde a:");
