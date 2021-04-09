@@ -157,7 +157,7 @@ public class MenuPlanetarium {
         // HEADER METODO
         cls();
         strutturaSistema(sistema);
-        System.out.println(String.format(MSG_TITLE, "RIMUOVI PIANETA"));
+        System.out.println(String.format(MSG_TITLE, "AGGIUNGI SATELLITE"));
 
 
         // INPUT DATI
@@ -284,6 +284,7 @@ public class MenuPlanetarium {
         strutturaSistema(sistema);
         System.out.println(String.format(MSG_TITLE, "CALCOLO CENTRO DI MASSA"));
 
+        // STAMPA CENTRO MASSA
         System.out.println("Il centro di massa corrisponde a:");
         Posizione centroDiMassa = sistema.calcolaCentroMassa();
         System.out.println("Coordinata x cdm: " + centroDiMassa.getX());
