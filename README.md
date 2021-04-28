@@ -1,2 +1,2 @@
 # Planetarium 
-Planetarium project created by gamma trianguli
+Planetarium project for arnaldo project
